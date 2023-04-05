@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function TestReducx() {
-  const weight = useSelector((state) => state.weightReducer);
+  const weight = useSelector((state) => state.weigth);
   const todo = useSelector((state) => state.todo);
   console.log(weight);
   const dispatch = useDispatch();

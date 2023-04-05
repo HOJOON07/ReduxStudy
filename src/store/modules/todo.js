@@ -17,7 +17,17 @@ const initState = {
       done: false,
     },
   ],
+  buyList: ['닌텐도', '자동차'],
+  todoListCount: 3,
 };
+
+const doneFunc = (action) => {
+  const result = [...initState.toDoList];
+  const doneList = result.filter((item) => item.id === action.id);
+};
+
+// let counts = initState.toDoList.length;
+// initState['nextID'] = counts;
 
 const CREATE = 'todo/CREATE';
 const DONE = 'todo/DONE';
@@ -47,10 +57,30 @@ const todo = (state = initState, action) => {
           text: action.payload.text,
           done: false,
         }),
-        nextID: action.payload.id + 1,
+        // todoList: [
+        //   ...state.toDoList,
+        //   {
+        //     id: action.payload.id,
+        //     text: action.payload.text,
+        //     done: false,
+        //   },
+        // ],
+        // nextID: action.payload.id + 1,
       };
     case DONE:
-      return console.log('done');
+      return {
+        ...state,
+        toDoList: state.toDoList.map((el) => {
+          if (el.id === action.id) {
+            return {
+              ...el,
+              done: true,
+            };
+          } else {
+            return el;
+          }
+        }),
+      };
     default:
       return state;
   }

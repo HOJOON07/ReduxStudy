@@ -14,7 +14,6 @@ import TodoLIst from './components/TodoLIst';
 const Router = () => {
   return (
     <>
-      <TestReducx></TestReducx>
       <Headers></Headers>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

@@ -1,21 +1,19 @@
-// import { Route, Routes } from 'react-router-dom';
-// import './App.css';
-// import Board from './components/Board';
-// import Profile from './components/Profile';
-// // import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
-// import Headers from './components/Headers';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+import MBTI from './pages/MBTI';
+import Start from './pages/Start';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Routes>
-//         <Route path="/" element={<Headers></Headers>}></Route>
-//         <Route path="/profile" element={<Profile></Profile>}></Route>
-//         <Route path="/board" element={<Board></Board>}></Route>
-//       </Routes>
-//     </div>
-//   );
-// }
+const Main = styled.main`
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 35px;
+  margin: auto;
+  text-align: center;
+`;
 
-// export default App;
+export default function App() {
+  const page = useSelector((state) => state.mbti.page);
+  return <Main>{page === 0 ? <Start></Start> : <MBTI></MBTI>}</Main>;
+}

@@ -1,7 +1,7 @@
-const weight = 100;
+const weightState = 100;
 const today = new Date().getDate();
 
-const weightReducer = (state = weight, action) => {
+const weigth = (state = weightState, action) => {
   switch (action.type) {
     case '증가':
       state++;
@@ -20,4 +20,4 @@ const weightReducer = (state = weight, action) => {
   return state;
 };
 
-export default weightReducer;
+export default weigth;

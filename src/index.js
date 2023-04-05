@@ -5,21 +5,26 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
-import { createStore } from 'redux';
-import combineReducer from './store/index';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './store/index';
+import App from './App';
+import GlobalStyle from './components/GlobalStyle';
 
 const reduxDevTool =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const rootReducer = createStore(combineReducer, reduxDevTool);
+const store = configureStore({ reducer: rootReducer }, reduxDevTool);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={rootReducer}>
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-  </Provider>
+  <>
+    <GlobalStyle></GlobalStyle>
+    <Provider store={store}>
+      {/* <BrowserRouter> */}
+      <App />
+      {/* </BrowserRouter> */}
+    </Provider>
+  </>
 );
 
 reportWebVitals();
