@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Progress from '../components/Progress';
 import SkyblueButton from '../components/SkyblueButton';
 import { next } from '../store/modules/mbti';
+import { check } from '../store/modules/mbti';
 
 const SurveyQuestion = styled.p`
   font-size: 1.5em;
@@ -17,7 +18,9 @@ const Vs = styled.p`
 export default function MBTI() {
   const survey = useSelector((state) => state.mbti.survey);
   const page = useSelector((state) => state.mbti.page);
+
   const dispatch = useDispatch();
+
   return (
     <>
       <SurveyQuestion>{survey[page - 1].question}</SurveyQuestion>
@@ -27,7 +30,10 @@ export default function MBTI() {
             <li key={idx}>
               <SkyblueButton
                 text={el.text}
-                clickEvent={() => dispatch(next())}
+                clickEvent={() => {
+                  dispatch(check(el.result));
+                  dispatch(next());
+                }}
               ></SkyblueButton>
               {idx === 0 && <Vs>Vs</Vs>}
             </li>
