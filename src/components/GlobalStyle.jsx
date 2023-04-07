@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Black And White Picture', sans-serif; 
     padding-top: 1em;
     white-space: pre-wrap;
+    text-align:center;
   }
   ul,ol{
     list-style: none;

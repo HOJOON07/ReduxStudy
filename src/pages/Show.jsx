@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import OrangeButton from '../components/OrangeButton';
@@ -34,6 +34,20 @@ export default function Show() {
 
   const dispatch = useDispatch();
 
+  const plusCount = async () => {
+    const plusCountData = await fetch('http://localhost:5500/data/pluscounts', {
+      method: 'POST',
+    });
+    if (plusCountData.status === 200) {
+      console.log(await plusCount.json());
+    } else {
+      throw new Error('방문자수 업데이트 실패');
+    }
+  };
+
+  // useEffect(() => {
+  //   plusCount();
+  // }, []);
   return (
     <>
       <Header>당신의 MBTI 결과는?</Header>
@@ -43,7 +57,10 @@ export default function Show() {
       <AdditionalImg src={explanation.img}></AdditionalImg>
       <OrangeButton
         text="다시 검사하기"
-        clickEvent={() => dispatch(reset())}
+        clickEvent={() => {
+          dispatch(reset());
+          plusCount();
+        }}
       ></OrangeButton>
     </>
   );

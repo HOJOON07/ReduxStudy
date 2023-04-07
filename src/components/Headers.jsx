@@ -12,6 +12,9 @@ export default function Headers() {
   const gotoRedux = () => {
     navigate('/test');
   };
+  const goMbti = () => {
+    navigate('/main');
+  };
   return (
     <>
       <nav>
@@ -27,6 +30,9 @@ export default function Headers() {
           </li>
           <li>
             <a onClick={gotoRedux}>리덕스로 이동</a>
+          </li>
+          <li>
+            <a onClick={goMbti}>엠비티아이 검사 이동</a>
           </li>
         </ul>
       </nav>

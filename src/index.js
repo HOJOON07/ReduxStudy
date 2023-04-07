@@ -20,9 +20,9 @@ root.render(
   <>
     <GlobalStyle></GlobalStyle>
     <Provider store={store}>
-      {/* <BrowserRouter> */}
-      <App />
-      {/* </BrowserRouter> */}
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </Provider>
   </>
 );
