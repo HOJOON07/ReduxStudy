@@ -1,4 +1,4 @@
-const mongoClient = require('./mongoConnect');
+const mongoㅌClient = require('./mongoConnect');
 
 const initState = {
   mbtiResult: '',

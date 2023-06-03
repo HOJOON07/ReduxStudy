@@ -37,11 +37,12 @@ export default function Login() {
     const resRegister = await axios.post(
       'http://localhost:5500/user/register',
       {
-        id: registerInput.current.value,
-        password: registerPwInput.current.value,
+        userID: registerInput.current.value,
+        userPW: registerPwInput.current.value,
       }
     );
-    if (resRegister.status !== 200) return alert(resRegister);
+    if (resRegister.status === 200) console.log('성공', resRegister);
+    if (resRegister.status !== 200) console.log(resRegister);
     alert(resRegister);
     dispatch(
       login({
