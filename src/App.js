@@ -17,6 +17,7 @@ const Main = styled.main`
 export default function App() {
   const survey = useSelector((state) => state.mbti.survey);
   const page = useSelector((state) => state.mbti.page);
+  //리덕스 재밌다.
   return (
     <Main>
       {page === 0 ? (

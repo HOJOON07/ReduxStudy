@@ -17,6 +17,7 @@ const MainStyle = styled.main`
 export default function Main() {
   const survey = useSelector((state) => state.mbti.survey);
   const page = useSelector((state) => state.mbti.page);
+
   return (
     <MainStyle>
       {page === 0 ? (
